@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Yhteenveto sivun sisällöstä, hakukoneet näyttävät tämän hakutuloksissa -->
+    <meta name="description" content="JAMK:n Web UI -kurssin lopputyönä tehdyt sivut">
+    <!-- Avainsanoja hakukoneoptimointia varten -->
+    <meta name="keywords" content="HTML, CSS, Less, Bootstrap">
+    <!-- Sivun tekijä -->
+    <meta name="author" content="Toni Hiidenvuo">
+    <!-- Kertoo selaimelle kuinka käsitellä sivuston mittasuhteita ja skaalausta  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AA3689:n lopputyö</title>
+    <link rel="icon" href="./pics/favicon.png" type="image/png" sizes="16x16">
+    <link rel="stylesheet/less" type="text/css" href="./styles/styles.less" />
+    <script src="./javascript/less.js"></script>
+    <script>
+        less = {
+            env: "development",
+            async: false,
+            fileAsync: false,
+            poll: 1000,
+            functions: {},
+            dumpLineNumbers: "comments",
+            relativeUrls: false,
+            rootpath: ":/a.com/"
+        };
+    </script>
+    <script src="./javascript/script.js"></script>
+    <script src="https://use.fontawesome.com/4512c13006.js"></script>
+</head>
+
+<body>
+
+    <!-- Container -->
+    <div id="container">
+
+        <!-- Header -->
+        <header>
+            <h1>AA3689:n lopputyö</h1>
+        </header>
+
+        <!-- Navigaatio -->
+        <!-- Kutsutaan funktiota 'closeNav" klikatessa navigoinnin sulkunappia -->
+        <nav id="sideNav" class="overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="#">???</a></li>
+                    <li><a href="./less.html"><span class="fa fa-angle-right"></span>LESS</a></li>
+                    <li><a href="./bootstrap.html">Bootstrap</a></li>
+                    <li><a href="./about.html">About</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Navigaation ikoni -->
+        <!-- Kutsutaan funktiota 'openNav' klikatessa span-elementillä luotua ikonia -->
+        <div id="navButton">
+            <span onclick="openNav()">&#9776;</span>
+        </div>
+
+        <!-- Wrapper, koko LESS-sivun kehys, sisältää mm. reunat -->
+        <div id="less_wrapper">
+
+            <!-- Main-elementti -->
+            <main id="less_main">
+
+                <!-- LESS:n logo -->
+                <figure id="less_logo">
+                    <img src="./pics/less_logo.png" alt="LESS-logo">
+                    <figcaption>It's CSS, with just a little more</figcaption>
+                </figure>
+
+                <!-- Kappaleen vaihto -->
+                <hr class="style1">
+
+                <!-- Artikkelin div -->
+                <div class="less_content">
+
+                    <!-- Artikkeli -->
+                    <article>
+                        <h2>Pieni katsaus Lessiin</h2>
+
+                        <!-- Ensimmäinen kappale artikkelista -->
+                        <section>
+                            <h3>Mikä on LESS?</h3>
+                            <p>
+                                Less on yksi kolmesta isosta CSS-esiprosessorista SASS:n ja Styluksen lisäksi.
+                                Lyhyesti sanottuna CSS-esiprosessori lisää CSS:n olio-ohjelmointikielistä tuttuja
+                                ominaisuuksia (esim. muuttujat ja funktiot).
+                                Lessiä on mahdollista suorittaa palvelinpuolelta Node.js:n avulla tai suoraan
+                                verkkoselaimesta. Tässä harjoituksessa käytetään selaimesta käännettävää versiota sen
+                                helpon asennuksen vuoksi, mutta tuotantokäytössä tämä ei ole missään nimessä
+                                suositeltava tapa sen hitauden ja toimintaongelmian vuoksi.
+                                <span class="less_lahde">
+                                    Lähde: <a
+                                        href="https://www.theseus.fi/bitstream/handle/10024/131658/Valtonen_Ville.pdf?sequence=1&isAllowed=y"
+                                        target="_blank" rel="noreferrer">
+                                        Ville Valtosen 'CSS-esiprosessien vertailu' -opinnäytetyö</a></span>
+                            </p>
+                        </section>
+
+                        <!-- Toinen kappale artikkelista -->
+                        <section>
+                            <h3>LESS käytännössä</h3>
+                            <p>Jätetään teknisempi puoli nyt sikseen ja katsotaan, miten Less näkyy ja toimii
+                                käytännössä.
+                                Otin esimerkiksi tämän sivun navigoinnin koodin:
+                            </p>
+                            <!-- Vertailukuva LESS:n ja CSS:n välillä -->
+                            <figure>
+                                <img src="./pics/vertailu.PNG"
+                                    alt="Navigoinnin CSS-koodi ilman Lessiä ja Lessin kanssa">
+                                <figcaption id="vertailu_caption">Vasen puoli CSS, oikea puoli LESS</figcaption>
+                            </figure>
+                            <p>
+                                Esimerkkikuvassa on siis käytetty parent selectoria sekä muuttujia. Parent selectoria
+                                esittää &-merkki ja sen avulla voidaan ketjuttaa saman äitielementin alla olevia
+                                elementtejä
+                                tai määrittää pseudo-luokkia ilman, että äitielementti täytyy esitellä aina uudestaan.
+                                Esimerkissä .overlay on nav-elementin luokan nimi. Sen sisältä
+                                löytyvä a-elementti sekä a-elementin luokkamääritys (.closebtn) on ketjutettu parent
+                                selectorilla. A-elementille on ketjutettu myös sen pseudo-luokkamääritykset,
+                                ja navigoinnin ikonin määritteet on yhdistetty.
+                            </p>
+                            <p>
+                                Kaikki värimäärittelyt on toteutettu muuttujien avulla. Muuttujat on esitelty heti
+                                CSS-tiedoston alussa tähän tyyliin:
+                            </p>
+                            <pre>
+                            <code>
+    @header-font: Castellar, 'Times New Roman', Georgia;
+    @body-font: 'Courier New', Courier, monospace;
+    @hr-font: Georgia, 'Times New Roman', Times, serif;
+    @nav-hover-color: #f1f1f1;
+    @nav-bg-color: rgba(0, 0, 0, 0.9);
+    @nav-link-color: #818181;
+                            </code>
+                        </pre>
+                            <p>
+                                Muuttujat ovat erityisen käteviä juurikin vaikka värien ja fonttien määrittelyssä.
+                                Mikäli jatkossa pitää muuttaa esim. otsikoiden fonttia, voi sen käydä vaihtamassa
+                                vain muuttujaan ja otsikot hakevat sieltä uuden fontin itselleen.
+                            </p>
+                            <p>
+                                Tämä kaikki edellä oli vain marginaalisen pieni osa Lessiä. Tarkoitukseni ei kuitenkaan
+                                ollut tässä esitellä kaikkia Lessin ominaisuuksia, ottaen huomioon että ne löytyvät
+                                hyvin dokumentoituna <a href="http://lesscss.org/features/" target="_blank"
+                                    rel="noreferrer">lesscss.org</a> sivustolta, vaan pikemmin vain saada sisältöä
+                                lopputyöhön sekä tutustua yhteen CSS-esiprosessoriin ja harjoitella sen käyttöä.
+                            </p>
+                        </section>
+                    </article>
+                    <!-- Less-contentin sulkudiv-->
+                </div>
+            </main>
+            <!-- Less-wrapperin sulkudiv -->
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <a href="./index.html">Home</a>
+            <a href="#">???</a>
+            <a href="./less.html"><span class="fa fa-angle-right"></span>LESS</a>
+            <a href="./bootstrap.html">Bootstrap</a>
+            <a href="./about.html">About</a>
+            <p>Copyright &copy; Toni Hiidenvuo</p>
+        </footer>
+
+        <!-- Containerin sulkudiv -->
+    </div>
+</body>
+
+</html>

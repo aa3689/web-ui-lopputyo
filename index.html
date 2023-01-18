@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Yhteenveto sivun sisällöstä, hakukoneet näyttävät tämän hakutuloksissa -->
+    <meta name="description" content="JAMK:n Web UI -kurssin lopputyönä tehdyt sivut">
+    <!-- Avainsanoja hakukoneoptimointia varten -->
+    <meta name="keywords" content="HTML, CSS, Less, Bootstrap">
+    <!-- Sivun tekijä -->
+    <meta name="author" content="Toni Hiidenvuo">
+    <!-- Kertoo selaimelle kuinka käsitellä sivuston mittasuhteita ja skaalausta  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AA3689:n lopputyö</title>
+    <link rel="icon" href="./pics/favicon.png" type="image/png" sizes="16x16">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <script src="./javascript/script.js"></script>
+    <script src="https://use.fontawesome.com/4512c13006.js"></script>
+</head>
+
+<body>
+
+    <!-- Container -->
+    <div id="container">
+
+        <!-- Header -->
+        <header>
+            <h1>AA3689:n lopputyö</h1>
+        </header>
+
+        <!-- Navigaatio -->
+        <!-- Kutsutaan funktiota 'closeNav" klikatessa navigoinnin sulkunappia -->
+        <nav id="sideNav" class="overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+                <ul>
+                    <li><a href="./index.html"><span class="fa fa-angle-right"></span>Home</a></li>
+                    <li><a href="#">???</a></li>
+                    <li><a href="./less.html">LESS</a></li>
+                    <li><a href="./bootstrap.html">Bootstrap</a></li>
+                    <li><a href="./about.html">About</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Navigaation ikoni -->
+        <!-- Kutsutaan funktiota 'openNav' klikatessa span-elementillä luotua ikonia -->
+        <div id="navButton">
+            <span onclick="openNav()">&#9776;</span>
+        </div>
+
+        <!-- Wrapper -->
+        <div id="index_wrapper">
+
+            <!-- Main -->
+            <main id="index_main">
+                <article id="index_article">
+                    <h2>Tervetuloa</h2>
+                    <hr class="style1">
+                    <p>
+                        <a href="https://www.kotus.fi/nyt/kotus-blogi/blogiarkisto/laura_niemi/juuh_elikkas.12011.blog"
+                            target="_blank" rel=”noreferrer”>Juuh elikkäs</a>... Tämä sivusto on
+                        toteutettu Jyväskylän ammattikorkeakoulun WEB UI
+                        -kurssin lopputyönä, ja se on tehty responsiivisesti eli sen sisältö skaalautuu käytetyn
+                        laitteen näyttökoon mukaan (mitä nyt <a href="./bootstrap.html">bootstrap-sivussa</a> saattaa
+                        esiintyä pieniä teknisiä ongelmia pienellä näytöllä). Kaikki koodi ei ole omaa käsialaani,
+                        esimerkiksi sivusta esiin
+                        tuleva navigointi on <a href="https://www.w3schools.com/howto/howto_js_fullscreen_overlay.asp"
+                            target="_blank" rel=”noreferrer”>W3Schoolsin</a>
+                        tekemä. Koodi vaati kuitenkin hieman muokkaamista, jotta sain sen sopimaan sivulle.
+                        Alkuperäinen koodi avasi navigoinnin aina koko ikkunan levyiseksi, joten muokkasin koodia
+                        window.matchMedia:n avulla niin, että leveällä näytöllä navigaatio aukeaa 30
+                        prosentin leveyteen näyttökoosta ja kapealla näytöllä koko ikkunan levyiseksi. Muualta kopioidut
+                        koodit tai muut avut on lueteltu <a href="./about.html">about-sivulla</a>.
+                    </p>
+                    <p>
+                        <a href="./index.html">Tämä nimenomainen sivu</a> on toteutettu ns. perinteisellä
+                        CSS:llä eli sen teossa ei ole käytetty gridiä / flexboxia tai mitään frameworkia /
+                        CSS-esiprosessoria.
+                    </p>
+                    <p>
+                        Halusin kuitenkin harjoitusmielessä tutustua hieman frameworkeihin ja CSS-esiprosessoreihin,
+                        joten <a href="./bootstrap.html">Bootstrap-sivuun</a> käytin löytämääni <a
+                            href="https://github.com/divshot/geo-bootstrap" target="_blank" rel=”noreferrer”>Geo
+                            Bootstrap</a> -nimistä teemaa, jonka ovat kehittäneet Jake Johnson ja
+                        Michael Bleigh
+                        <a href="https://getbootstrap.com/" target="_blank" rel=”noreferrer”>Twitter
+                            Bootsrapin</a> pohjalta. Geo Bootstrapiin päädyin nostalgiasyistä, teinhän ensimmäiset
+                        kotisivuni siinä 2000-luvun vaihteessa freewebs.org tai vastaavan kotisivukoneen avulla.
+                        Olivat varmasti hienot.
+                    </p>
+                    <p>
+                        <a href="./less.html">LESS-sivussa</a> käytin CSS-esiprosessoria nimeltä LESS. En ollut aiemmin
+                        käyttänyt mitään esiprosessoria lukuunottamatta yhtä pientä kurssin
+                        harjoitustehtävää. Tälläkin kertaa sen käyttö jäi melko vähälle ajanpuutteen vuoksi, mutta aina
+                        sitä jotain uutta oppii. Nyt esimerkiksi opin sen, että Lessissä voi media queryt laittaa
+                        elementti-valitsimien sisään.
+                    </p>
+                    <p>
+                        <a href="./about.html">About-sivussa</a> on käytetty gridia ja flexboxia. Sivu koostuu kolmesta
+                        kolumnista näyttökoon ollessa yli 1400px, kahdesta kolumnista 990px ja 1400px välillä ja yhdestä
+                        kolumnista näyttökoon ollessa alle 990px. Flexboxia käytin sivun laatikoiden sisällä.
+                    </p>
+                    <aside id="less_error">
+                        <p>
+                            HUOM! LESS-sivu ei välttämättä toimi selainten oletusasetuksilla lokaalisti ajettaessa.
+                            Selain antaa <span class="p_bg">Cross-Origin Request Blocked</span> -virheilmoituksen.
+                            Tämän saa kierrettyä käynnistämällä Chromen komentorivin kautta komennolla <span
+                                class="p_bg">start chrome --allow-file-access-from-files</span> (testattu versiossa
+                            87.0.4280.88) tai tarkastelemalla sivua live-serverin kautta.
+                        </p>
+                    </aside>
+                </article>
+
+                <hr class="style1">
+                <section>
+
+                    <!-- Otsikko postikortille -->
+                    <h2>Asiaan liittymätön kuva</h2>
+
+                    <!-- Postikortin kuva -->
+                    <figure id="postcard_box">
+                        <img src="./pics/postcard.jpg" alt="Vanha postikortti">
+                        <figcaption>
+                            <p>"Back of 'Eiffel Tower at Paris - Color-foto by Trans World Airlines' Postcard" by <a
+                                    href="https://www.flickr.com/photos/66733752@N00" target="_blank"
+                                    rel="noreferrer">Jasperdo</a> is
+                                licensed with CC BY-NC-ND 2.0. To view a copy of this license, visit
+                                <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/" target="_blank"
+                                    rel="noreferrer">creativecommons.org</a>
+                            </p>
+                        </figcaption>
+                    </figure>
+                </section>
+            </main>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <a href="./index.html"><span class="fa fa-angle-right"></span>Home</a>
+            <a href="#">???</a>
+            <a href="./less.html">LESS</a>
+            <a href="./bootstrap.html">Bootstrap</a>
+            <a href="./about.html">About</a>
+            <p>Copyright &copy; Toni Hiidenvuo</p>
+        </footer>
+    </div>
+</body>
+
+</html>

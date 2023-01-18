@@ -1,0 +1,261 @@
+/**************************************** Muuttujien määritykset **************************************/
+@header-font: Castellar, 'Times New Roman', Georgia;
+@body-font: 'Courier New', Courier, monospace;
+@hr-font: Georgia, 'Times New Roman', Times, serif;
+
+@nav-hover-color: #f1f1f1;
+@nav-bg-color: rgba(0, 0, 0, 0.9);
+@nav-link-color: #818181;
+
+@code-font-color: #D19A5E;
+
+@990px_over: ~"only screen and (min-width: 990px)";
+@990px: ~"only screen and (max-width: 990px)";
+@520px: ~"only screen and (max-width: 520px)";
+@460px: ~"only screen and (max-width: 460px)";
+@400px: ~"only screen and (max-width: 400px)";
+@360px: ~"only screen and (max-width: 360px)";
+/************************************ Muuttujien määritykset loppuvat *********************************/
+/**************************************** LESS-sivun määritykset **************************************/
+#less_wrapper {
+    margin: auto auto;
+    width: 95%;
+    max-width: 1150px;
+    padding: 1rem;
+    border: 5px double black;
+  }
+
+#less_logo {
+    text-align: center;
+    margin-bottom: 30px;
+    & img {
+        height: auto;
+        max-width: 50%;
+    }
+    @media @990px {
+      font-size: 0.9rem;
+    }
+    @media @520px {
+      font-size: 0.7rem;
+    }
+}
+
+#vertailu_caption {
+  max-width: 750px;
+  font-size: 0.7rem;
+  padding: 5px;
+  margin: 0 auto;
+  background-color: rgba(85, 79, 79, 0.048);
+}
+
+.less_content {
+  max-width: 90%;
+  margin: 0 auto;
+  line-height: 1.4;
+  & h2 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 3rem;
+    font-family: @header-font;
+    margin-top: 30px;
+    @media only screen and (max-width: 520px) {
+      font-size: 2.5rem;
+    }
+    @media only screen and (max-width: 460px) {
+      font-size: 2rem;
+    }
+  }
+  & figure {
+    padding: 10px;
+    text-align: center;
+  }
+  & img {
+      height: auto;
+      max-width: 100%;
+    }
+  & p {
+    padding-top: 10px;
+  }
+  & pre {
+    color: @code-font-color;
+    font-weight: bolder;
+  }
+  @media @990px_over {
+    text-align: justify;
+  }
+}
+
+.less_lahde {
+  font-size: 0.8rem;
+}
+
+.italic {
+  font-style: italic;
+}
+
+a {
+  &:visited {
+    color: rgb(104, 97, 97);
+    text-decoration: none;
+  }
+}
+
+/* https://stackoverflow.com/questions/34691470/responsive-pre-tag */
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  text-align: justify;
+}
+/************************************ LESS-sivun määritykset loppuvat **********************************/
+/************************************** Yleisluontoiset määritykset ************************************/
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	&:before {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+	&:after {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: @body-font;
+  background-image: ~"url(./pics/body_bg.png)";
+}
+
+header h1 {
+  font-family: @header-font;
+  padding: 10px;
+  margin-left: 1%;
+}
+
+#container {
+  position: relative;
+  min-height: 100vh;
+  min-width: 300px;
+  margin: 0 auto;
+  padding-bottom: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0);
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  font-size: 0.9rem;
+  height: 2.5rem;
+  line-height: 1.25rem;
+  text-align: center;
+  background-color: rgba(85, 79, 79, 0.048);
+}
+
+footer p {
+  color: rgb(129, 129, 129);
+}
+
+footer a {
+  padding: 0 1.5rem;
+}
+
+.style1 {
+  font-family: @hr-font;
+  margin-bottom: 15px;
+  padding: 0;
+  border: none;
+  border-top: medium double #333;
+  color: #333;
+  text-align: center;
+  overflow: visible;
+    &:after {
+    content: '§';
+        display: inline-block;
+        position: relative;
+        top: -0.7em;
+        font-size: 1.5em;
+        padding: 0 0.25em;
+        background: white;
+    }
+}
+/********************************* Yleisluontoiset määritykset loppuvat ********************************/
+/************************************ Navin ja sen ikonin määritykset **********************************/
+/******* Navin koodi varastettu: https://www.w3schools.com/howto/howto_js_fullscreen_overlay.asp *******/
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: @nav-bg-color;
+    overflow: hidden;
+    transition: 0.5s;
+    & a {
+        padding: 8px;
+        text-decoration: none;
+        font-size: 2.5rem;
+        color: @nav-link-color;
+        display: block;
+        transition: 0.3s;
+        &:hover, &:after {
+            color: @nav-hover-color;
+        }
+    }
+    & .closebtn {
+        position: absolute;
+        top: 35px;
+        right: 10%;
+        font-size: 8rem;
+        @media @990px {
+            right: 2.8%;
+            font-size: 8rem;
+          }
+    }
+    @media @990px {
+        left: auto;
+        right: 0;
+  }
+}
+
+  .overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+  }
+  
+  #navButton {
+    position: fixed;
+    top: 73px;
+    left: 30px;
+    & span {
+        font-size: 4rem;
+        cursor: pointer;
+        @media @520px {
+          font-size: 3.5rem;
+        }
+        @media @460px {
+          font-size: 3rem;
+        }
+        @media @400px {
+          font-size: 2.5rem;
+        }
+        @media @360px {
+          font-size: 2rem;
+        }
+    }
+    @media @990px {
+        left: auto;
+        right: 40px;
+      }
+  }
+  /************************************* Navin määritykset loppuvat **************************************/

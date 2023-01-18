@@ -1,0 +1,448 @@
+/************************************ Yleisluontoiset määritykset **********************************/
+/* Border-box varmistaa, ettei elementeille asetettu todellinen koko muutu paddingia tai borderia lisätessä.
+Poistetaan myös selaimen automaattisesti asettamat marginit ja paddingit. */
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Asetetaan "root-fonttikoko" prosentteihin skaalautuvuuden vuoksi.
+   Tässä olisi voinut halutessaan käyttää myös 62.5 prosenttia,
+   jolloin oletusfonttikoko olisi ollut 10px. Tällöin esim. 1.6rem olisi 16px, 2.75rem olisi 27.5px jne.
+   Nyt 1.6rem on 25.6px, 2.75rem on 44px jne.*/
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: 'Courier New', Courier, monospace;
+  background-image: url(./pics/body_bg.png);
+}
+
+header h1 {
+  font-family: Castellar, 'Times New Roman', Georgia;
+  padding: 10px;
+  margin-left: 1%;
+}
+/* Position: relative ei poista itseään flowsta, mahdolliset left, right ym. sijoittamismääreet otetaan "omasta paikastaan" 
+   min-height: 100vh asettaa containerin vähimmäiskorkeudeksi näyttöruudun korkeuden (vh == viewport height == 1 % viewportista) */
+#container {
+  position: relative;
+  min-height: 100vh;
+  min-width: 300px;
+  margin: 0 auto;
+  padding-bottom: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0);
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  font-size: 0.9rem;
+  height: 2.5rem;
+  line-height: 1.25rem;
+  text-align: center;
+  background-color: rgba(85, 79, 79, 0.048);
+}
+
+footer p {
+  color: rgb(129, 129, 129);
+}
+
+footer a {
+  padding: 0 1.5rem;
+}
+
+/* Stailaukset hr-tagille: https://css-tricks.com/examples/hrs/ */
+.style1 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  padding: 0;
+  border: none;
+  border-top: medium double #333;
+  color: #333;
+  text-align: center;
+  overflow: visible; /* Ilman tätä Chrome ja Edge (ja mahdollisesti kaikki Chromium-pohjaiset selaimet)
+                        eivät osaa näyttää seuraavaa pseudo-tyylitystä oikein */
+}
+.style1:after {
+  content: '§';
+  display: inline-block;
+  position: relative;
+  top: -0.7em;
+  font-size: 1.5em;
+  padding: 0 0.25em;
+  background: white;
+}
+/********************************* Yleisluontoiset määritykset loppuvat ********************************/
+
+/************************************ Navin ja sen ikonin määritykset **********************************/
+/******* Navin koodi varastettu: https://www.w3schools.com/howto/howto_js_fullscreen_overlay.asp *******/
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 2.5rem;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover,
+.overlay a:focus {
+  color: #f1f1f1;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 35px;
+  right: 10%;
+  font-size: 8rem;
+}
+
+/* Määrittää navigaation ikonin paikan.
+  Fixed-arvon ansiosta ikoni pysyy aina näkyvillä.
+  Poistaa itsensä flowsta. */
+#navButton {
+  position: fixed;
+  top: 73px;
+  left: 30px;
+}
+
+/* Muuttaa navigaation ikonin kokoa suuremmaksi.
+   Cursor-ominaisuudella voi määrittää kursorin erilaiseksi. */
+#navButton span {
+  font-size: 4rem;
+  cursor: pointer;
+}
+
+/************************************* Navin määritykset loppuvat **************************************/
+
+/************************************* Index-sivun määritykset *****************************************/
+#index_wrapper {
+  margin: auto auto;
+  width: 95%;
+  max-width: 1150px;
+  padding: 1rem;
+  border: 5px double black;
+}
+
+#index_article h2 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 4rem;
+  font-family: Castellar, 'Times New Roman', Georgia;
+}
+
+#index_article p {
+  line-height: 1.4;
+  padding: 10px;
+  text-align: justify;
+}
+
+#postcard_box {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+#postcard_box img {
+  height: auto;
+  max-width: 100%;
+  margin: auto auto;
+}
+
+#index_wrapper section > h2 {
+  font-family: Castellar, 'Times New Roman', Georgia;
+  font-size: 1rem;
+  font-weight: lighter;
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+#index_wrapper figcaption {
+  font-size: 0.7rem;
+  padding: 5px;
+  text-align: center;
+  background-color: rgba(85, 79, 79, 0.048);
+}
+
+a:link,
+a:visited {
+  color: rgb(104, 97, 97);
+  text-decoration: none;
+}
+/********************************** Index-sivun määritykset loppuvat **************************************/
+
+/************************************* About-sivun määritykset *****************************************/
+#about_wrapper {
+  width: 90%;
+  max-width: 2000px;
+  margin: 20px auto;
+  padding: 2rem;
+}
+
+#about_main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: minmax(100px, auto);
+  column-gap: 30px;
+  row-gap: 30px;
+}
+
+.box {
+  display: flex;
+  flex-flow: column wrap;
+  align-content: center;
+  text-align: center;
+  border: 5px double black;
+  padding: 5px;
+}
+
+.box h2 {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.box dt {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 2px;
+}
+
+#box2 img {
+  height: auto;
+  max-width: 100%;
+  border: 1px solid gray;
+  box-shadow: 2px 2px gray;
+}
+
+/* Tekniset speksit */
+#box1 {
+  grid-column-start: 1;
+  grid-row: 2 / span 5;
+}
+/* Henkilötiedot */
+#box2 {
+  grid-column-start: 2;
+  grid-row: 1 / span 5;
+}
+/* Testaus ja validointi */
+#box3 {
+  grid-column-start: 3;
+  grid-row: 2 / span 5;
+}
+/* Layoutin rakenne */
+#box4 {
+  grid-column-start: 1;
+  grid-row: 7 / span 5;
+}
+/* Kansiorakenne */
+#box5 {
+  grid-column-start: 2;
+  grid-row: 6 / span 5;
+}
+/* Käytetyt resurssit */
+#box6 {
+  grid-column-start: 3;
+  grid-row: 7 / span 5;
+}
+
+#firefox:before {
+  content: url(./pics/firefox_icon_32x32.png);
+  vertical-align: -10px;
+  margin-right: 8px;
+}
+
+#chrome:before {
+  content: url(./pics/chrome_icon_32x32.png);
+  vertical-align: -10px;
+  margin-right: 8px;
+}
+
+.validator:before {
+  content: url(./pics/w3c_icon_64x44.png);
+  vertical-align: -18px;
+  margin-right: 5px;
+}
+/******************************** About-sivun määritykset loppuvat *************************************/
+
+/************************************* Mediakyselyjen määrityket *****************************************/
+/* Ikkunan leveys 1400px tai alle.
+   Muutetaan about-sivun grid kaksikolumniseksi ja järjestetään boksit uusiksi */
+@media only screen and (max-width: 1400px) {
+  #about_main {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Tekniset speksit */
+  #box1 {
+    grid-column-start: 2;
+    grid-row: 2 / span 5;
+  }
+  /* Henkilötiedot */
+  #box2 {
+    grid-column-start: 1;
+    grid-row: 1 / span 5;
+  }
+  /* Testaus ja validointi */
+  #box3 {
+    grid-column-start: 1;
+    grid-row: 6 / span 5;
+  }
+  /* Layoutin rakenne */
+  #box4 {
+    grid-column-start: 2;
+    grid-row: 7 / span 5;
+  }
+  /* Kansiorakenne */
+  #box5 {
+    grid-column-start: 1;
+    grid-row: 11 / span 5;
+  }
+  /* Käytetyt resurssit */
+  #box6 {
+    grid-column-start: 2;
+    grid-row: 12 / span 5;
+  }
+}
+
+/* Ikkunan leveys 990px tai alle.
+   Siirretään navin ikoni sivun oikeaan reunaan sekä
+   navi aukeamaan oikealta ja hienoviilataan sulkunapin paikkaa.
+   Muutetaan about-sivun grid kaksikolumniseksi ja järjestetään boksit uusiksi */
+@media only screen and (max-width: 990px) {
+  #navButton {
+    left: auto;
+    right: 40px;
+  }
+
+  .overlay {
+    left: auto;
+    right: 0;
+  }
+
+  .overlay .closebtn {
+    right: 2.8%;
+    font-size: 8rem;
+  }
+
+  #about_main {
+    grid-template-columns: 1fr;
+  }
+
+  /* Tekniset speksit */
+  #box1 {
+    grid-column-start: 1;
+    grid-row: 7 / span 5;
+  }
+  /* Henkilötiedot */
+  #box2 {
+    grid-column-start: 1;
+    grid-row: 1 / span 5;
+  }
+  /* Testaus ja validointi */
+  #box3 {
+    grid-column-start: 1;
+    grid-row: 13 / span 5;
+  }
+  /* Layoutin rakenne */
+  #box4 {
+    grid-column-start: 1;
+    grid-row: 19 / span 5;
+  }
+  /* Kansiorakenne */
+  #box5 {
+    grid-column-start: 1;
+    grid-row: 25 / span 5;
+  }
+  /* Käytetyt resurssit */
+  #box6 {
+    grid-column-start: 1;
+    grid-row: 31 / span 5;
+  }
+}
+
+/* Ikkunan leveys 666px tai alle.
+   Asetetaan otsikolle marginia, jotta ei jää nav-ikonin alle,
+   fonttikoko pysyy samana (on tässä vain vertailuksi itselle). */
+
+@media only screen and (max-width: 666px) {
+  #index_article h2 {
+    font-size: 4rem;
+    margin-top: 75px;
+  }
+}
+/* Ikkunan leveys 520px tai alle.
+   Asetetaan otsikon ja nav-ikonin fonttikooksi 3.5rem (olivat 4rem) */
+@media only screen and (max-width: 520px) {
+  #index_article h2 {
+    font-size: 3.5rem;
+  }
+
+  #navButton span {
+    font-size: 3.5rem;
+  }
+}
+/* Ikkunan leveys 460px tai alle.
+   Asetetaan otsikon ja nav-ikonin fonttikooksi 3rem (olivat 3.5rem) */
+@media only screen and (max-width: 460px) {
+  #index_article h2 {
+    font-size: 3rem;
+  }
+  #navButton span {
+    font-size: 3rem;
+  }
+}
+/* Ikkunan leveys 400px tai alle.
+   Asetetaan otsikon ja nav-ikonin fonttikooksi 2.5rem (olivat 3rem) */
+@media only screen and (max-width: 400px) {
+  #index_article h2 {
+    font-size: 2.5rem;
+  }
+
+  #navButton span {
+    font-size: 2.5rem;
+  }
+}
+/* Ikkunan leveys 360px tai alle.
+   Asetetaan otsikon ja nav-ikonin fonttikooksi 2rem (olivat 2.5rem).
+   Asetetaan tekstikappaleiden fonttikooksi 0.9rem (oli 1rem)
+   Sivuston min-leveys 300px eli ei tarvetta luoda tätä alhaisempaa rajaa */
+@media only screen and (max-width: 360px) {
+  #index_article h2 {
+    font-size: 2rem;
+  }
+
+  #navButton span {
+    font-size: 2rem;
+  }
+
+  #index_article p {
+    font-size: 0.9rem;
+    padding: 5px;
+  }
+}
+/************************************ Mediakyselyjen määritykset loppuvat **************************************/

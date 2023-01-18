@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="fi">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Yhteenveto sivun sisällöstä, hakukoneet näyttävät tämän hakutuloksissa -->
+    <meta name="description" content="JAMK:n Web UI -kurssin lopputyönä tehdyt sivut">
+    <!-- Avainsanoja hakukoneoptimointia varten -->
+    <meta name="keywords" content="HTML, CSS, Less, Bootstrap">
+    <!-- Sivun tekijä -->
+    <meta name="author" content="Toni Hiidenvuo">
+    <!-- Kertoo selaimelle kuinka käsitellä sivuston mittasuhteita ja skaalausta  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AA3689:n lopputyö</title>
+    <link rel="icon" href="./pics/favicon.png" type="image/png" sizes="16x16">
+    <link rel="stylesheet" href="./styles/bootstrap.css">
+    <link rel=" stylesheet" href="./styles/bootstrap-responsive.css">
+    <script src="./javascript/script.js"></script>
+    <script src="https://use.fontawesome.com/4512c13006.js"></script>
+</head>
+
+<body>
+    <!-- Container -->
+    <div id="bootstrap_container" class="container">
+
+        <!-- Header -->
+        <header class="page-header">
+            <h1>AA3689:n lopputyö</h1>
+        </header>
+
+        <!-- Navigaatio -->
+        <!-- Kutsutaan funktiota 'closeNav" klikatessa navigoinnin sulkunappia -->
+        <nav id="sideNav" class="overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="#">???</a></li>
+                    <li><a href="./less.html">LESS</a></li>
+                    <li><a href="./bootstrap.html"><span class="fa fa-angle-right"></span>Bootstrap</a></li>
+                    <li><a href="./about.html">About</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Navigaation ikoni -->
+        <!-- Kutsutaan funktiota 'openNav' klikatessa span-elementillä luotua ikonia -->
+        <div id="navButton">
+            <span onclick="openNav()">&#9776;</span>
+        </div>
+
+        <!-- Main -->
+        <main>
+
+            <!-- Article -->
+            <article>
+                <h2>Tonin ikiomat kotisivut</h2>
+                <p>MOI! Kiva kun tulit. Oot näin mones kävijä: <img src="./pics/bootstrap_img/counter2.gif"
+                        alt="Feikkikävijälaskuri"></p>
+                <p>Oon Toni ja tykkään videopeleistä. Mun lempipelit on:</p>
+                <ul>
+                    <li>Tony Hawk's Pro Skater</li>
+                    <li>Age of Empires</li>
+                    <li>Crash Bandicoot</li>
+                    <li>Super Mario</li>
+                    <li>Midtown Madness</li>
+                </ul>
+
+                <!-- Section -->
+                <section class="section">
+                    <h3>Täs on kuvia mun lempipeleistä. Mul ei ollu enempää</h3>
+                    <div id="game_gallery">
+                        <figure>
+                            <h4>Age of Empires</h4>
+                            <img src="./pics/aoe.jpg" alt="Age of Empires 1 -peli">
+                            <figcaption> "Age of Empires 1" by <a href="https://www.flickr.com/photos/37102254@N00"
+                                    target="_blank" rel=”noreferrer”>CLF</a>
+                                is licensed with CC BY-NC-ND 2.0. To view a copy of this
+                                license, visit <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/"
+                                    target="_blank" rel=”noreferrer”>creativecommons.org</a>
+                            </figcaption>
+                        </figure>
+                        <figure>
+                            <h4>Super Mario</h4>
+                            <img src="./pics/mario.jpg" alt="Super Mario Bros -peli">
+                            <figcaption> "Super Mario bros" by <a href="https://www.flickr.com/photos/23211051@N05"
+                                    target="_blank" rel=”noreferrer”>betacontinua</a> is licensed with
+                                CC
+                                BY-NC-SA 2.0. To view a copy
+                                of this license, visit <a href="https://creativecommons.org/licenses/by-nc-sa/2.0/"
+                                    target="_blank" rel=”noreferrer”>creativecommons.org</a>
+                            </figcaption>
+                        </figure>
+                        <figure>
+                            <h4>Crash Bandicoot</h4>
+                            <img src="./pics/crash.jpg" alt="Crash Bandicoot 1 -peli">
+                            <figcaption>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </section>
+            </article>
+
+            <!-- Section -->
+            <section class="section">
+                <h3>Lempikirja</h3>
+                <p>Mun lempikirja on vitsikirja. Täs on lyhyt pätkä siitä</p>
+                <blockquote>Pikku-Kalle oli ensimmäistä päivää koulussa ja opettaja kyseli oppilaitten nimiä.
+                    Pikku-Ville kertoi vuorollaan: “Ville”. Tähän opettaja vastasi: “Eieiei! Täällä ei käytetä
+                    lempinimiä. Sinun oikea nimesihän on Viljami”. Seuraavaksi tuli Pikku-Kallen vuoro. Kalle mietti
+                    hetken ja huusi sitten iloisesti: “Kaljami!”</blockquote>
+            </section>
+
+            <!-- Section -->
+            <section>
+                <form action="http://localhost:3000/" method="POST">
+                    <h4>Jos haluut niin voit lähettää mulle sähköpostia tällä</h4>
+                    <p>Mä ehkä vastaan sun viesteihin, mut tää ei kyl ehkä toimi</p>
+                    <img src="./pics/bootstrap_img/emailme.gif" alt="Lähetä minulle sähköpostia -kuva"
+                        id="form_message">
+                    <div class="form-group">
+                        <label for="message">Kirjota sun asia tähän</label>
+                        <textarea name="message" id="message" rows="4" cols="50"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Ja sun nimi tähän</label>
+                        <input type="text" class="form-control" id="name">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Lähetä</button>
+                </form>
+            </section>
+
+            <!-- Aside -->
+            <aside id="ads">
+                <img src="./pics/bootstrap_img/noframes.gif" alt="Campaign Against Frames">
+                <img src="./pics/bootstrap_img/notepad.gif" alt="Site created with Notepad, the right way">
+                <img src="./pics/bootstrap_img/ns_logo.gif" alt="Netscape-logo">
+                <img src="./pics/bootstrap_img/ie_logo.gif" alt="Internet Explorer -logo">
+            </aside>
+        </main>
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+        <a href="./index.html">Home</a>
+        <a href="#">???</a>
+        <a href="./less.html">LESS</a>
+        <a href="./bootstrap.html"><span class="fa fa-angle-right"></span>Bootstrap</a>
+        <a href="./about.html">About</a>
+        <p>Tämän sivun luonnissa käytetty <a href="https://github.com/divshot/geo-bootstrap" target="_blank"
+                rel=”noreferrer”>Geo Bootstrapia</a></p>
+        <p>Copyright &copy; Toni Hiidenvuo</p>
+    </footer>
+</body>
+
+</html>
